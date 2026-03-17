@@ -63,14 +63,15 @@ header {
     justify-content:space-between; 
     align-items: center; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-    position: sticky;  
+    position: sticky; 
+    z-index: 1; 
 }
 
 .logo { font-size: 1.5rem; font-weight: bold; }
 .logo span { color: #007bff; }
 
-.nav-list { display: flex; list-style: none; margin: 0; padding: 0; }
-.nav-list li { margin-left: 20px; }
+.nav-list { display: flex;  list-style: none; margin: 0; padding: 0; }
+.nav-list li { margin-left: 20px;}
 .nav-list li a { text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
 .nav-list li a:hover { color: #007bff; }
 
@@ -79,23 +80,26 @@ header {
 .menu-toggle span { width: 25px; height: 3px; background: #333; border-radius: 2px; transition: 0.3s; }
 
 /* --- RESPONSIVE (Móvil) --- */
-@media (max-width: 768px) {
-    header {  padding: 1rem; }
 
-    .menu-toggle { display: flex;} /* Mostrar hamburguesa */
+    @media (max-width: 768px) {
+    .menu-toggle { 
+        display: flex; /* Aparecen las barras solo en móvil */
+    }
 
     .nav-list {
-        display: none; /* Ocultar menú por defecto */
+        display: none; /* Se oculta la lista para que solo salga al dar clic */
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #fff;
+        background-color: #fff; 
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         padding: 20px 0;
         text-align: center;
+        z-index: 100;
     }
+
 
     .nav-list.active { display: flex; } /* Clase que activará el JS */
 

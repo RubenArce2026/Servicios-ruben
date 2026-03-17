@@ -77,6 +77,7 @@ header {
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
+  z-index: 1;
 }
 
 .logo {
@@ -132,23 +133,21 @@ header {
 
 /* --- RESPONSIVE (Móvil) --- */
 @media (max-width: 768px) {
-  header {
-    padding: 1rem;
-  }
   .menu-toggle {
-    display: flex;
-  } /* Mostrar hamburguesa */
+    display: flex; /* Aparecen las barras solo en móvil */
+  }
   .nav-list {
-    display: none; /* Ocultar menú por defecto */
+    display: none; /* Se oculta la lista para que solo salga al dar clic */
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
+    background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
     text-align: center;
+    z-index: 100;
   }
   .nav-list.active {
     display: flex;
